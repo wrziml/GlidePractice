@@ -20,9 +20,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        sharedViewModel = ViewModelProvider(
-            MainActivity::class.java
-        )[SharedViewModel::class.java]
+        val sharedViewModel = MyApplication.sharedViewModel
         val projectItem = intent.getParcelableExtra<ProjectItem>("projectItem")
 
         val titleTextView: TextView = findViewById(R.id.detailTitle)

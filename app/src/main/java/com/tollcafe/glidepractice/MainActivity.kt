@@ -21,15 +21,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private var projectList = mutableListOf<ProjectItem>()
     private var currentPage = 1
-    private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sharedViewModel = ViewModelProvider(
-            this
-        )[SharedViewModel::class.java]
+        val sharedViewModel = MyApplication.sharedViewModel
 
         refreshLayout=findViewById(R.id.refreshLayout)
         recyclerView=findViewById(R.id.recyclerView)
@@ -47,11 +44,13 @@ class MainActivity : AppCompatActivity() {
         refreshLayout.setOnRefreshListener{
             currentPage=1
             loadProjects(true)
+            refreshLayout.finishRefresh(2000)
         }
 
         refreshLayout.setOnLoadMoreListener {
             currentPage++
             loadProjects(false)
+            refreshLayout.finishLoadMore(2000);
         }
 
         loadProjects(true)
