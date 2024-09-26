@@ -31,9 +31,7 @@ class ProjectAdapter(
 
         // 根据 isRead 属性设置不同的样式
         if (projectItem.isRead) {
-            holder.itemView.setBackgroundColor(Color.LTGRAY) // 已读项目的背景色
-        } else {
-            holder.itemView.setBackgroundColor(Color.WHITE) // 未读项目的背景色
+            holder.itemTitle.setTextColor(Color.GRAY) // 已读项目的背景色
         }
 
         holder.itemView.setOnClickListener{
