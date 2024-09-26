@@ -8,5 +8,8 @@ import retrofit2.http.Query
 
 interface WanAndroidApi {
     @GET("project/list/{page}/json")
-    suspend fun getProjects(@Path("page") page: Int, @Query("cid") cid: Int=294): Response<ProjectResponse>
+    suspend fun getProjects(
+        @Path("page") page: Int,
+        @Query("cid") cid: Int = 294
+    ): Response<ProjectResponse>
 }

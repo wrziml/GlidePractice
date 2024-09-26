@@ -12,9 +12,9 @@ import com.tollcafe.glidepractice.data.ProjectItem
 class ProjectAdapter(
     private val itemList: List<ProjectItem>,
     private val onClick: (ProjectItem) -> Unit
-) :RecyclerView.Adapter<ProjectAdapter.ViewHolder>(){
-    inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val itemTitle=itemView.findViewById<TextView>(R.id.itemTitle)
+) : RecyclerView.Adapter<ProjectAdapter.ViewHolder>() {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val itemTitle = itemView.findViewById<TextView>(R.id.itemTitle)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,18 +23,18 @@ class ProjectAdapter(
         return ViewHolder(view)
     }
 
-    override fun getItemCount()=itemList.size
+    override fun getItemCount() = itemList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val projectItem=itemList[position]
-        holder.itemTitle.text=projectItem.title
+        val projectItem = itemList[position]
+        holder.itemTitle.text = projectItem.title
 
         // 根据 isRead 属性设置不同的样式
         if (projectItem.isRead) {
             holder.itemTitle.setTextColor(Color.GRAY) // 已读项目的背景色
         }
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onClick(projectItem)
         }
     }

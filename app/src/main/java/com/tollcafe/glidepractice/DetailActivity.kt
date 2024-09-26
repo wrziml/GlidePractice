@@ -37,11 +37,10 @@ class DetailActivity : AppCompatActivity() {
 
         titleTextView.text = projectItem?.title
         linkTextView.text = projectItem?.link
-        setLinkTextView(linkTextView,projectItem?.link)
+        setLinkTextView(linkTextView, projectItem?.link)
         projectItem?.envelopePic?.let { picUrl ->
             Glide.with(this).load(picUrl).into(imageView)
         }
-
 
         // 3秒后通知主页面项目已读
         // 定义Runnable，用于标记项目为已读

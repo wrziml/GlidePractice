@@ -11,6 +11,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        sharedViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(this).create(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(this)
+            .create(SharedViewModel::class.java)
     }
 }

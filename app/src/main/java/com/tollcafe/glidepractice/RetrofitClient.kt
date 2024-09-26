@@ -11,7 +11,7 @@ object RetrofitClient {
             .build()
     }
 
-    val api:WanAndroidApi by lazy {
+    val api: WanAndroidApi by lazy {
         retrofit.create(WanAndroidApi::class.java)
     }
 }

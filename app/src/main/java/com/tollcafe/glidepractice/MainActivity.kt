@@ -28,21 +28,20 @@ class MainActivity : AppCompatActivity() {
 
         val sharedViewModel = MyApplication.sharedViewModel
 
-        refreshLayout=findViewById(R.id.refreshLayout)
-        recyclerView=findViewById(R.id.recyclerView)
+        refreshLayout = findViewById(R.id.refreshLayout)
+        recyclerView = findViewById(R.id.recyclerView)
 
-        adapter=ProjectAdapter(projectList){
-            projectItem->
-            val intent=Intent(this,DetailActivity::class.java)
-            intent.putExtra("projectItem",projectItem)
+        adapter = ProjectAdapter(projectList) { projectItem ->
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("projectItem", projectItem)
             startActivity(intent)
         }
 
-        recyclerView.adapter=adapter
-        recyclerView.layoutManager= LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        refreshLayout.setOnRefreshListener{
-            currentPage=1
+        refreshLayout.setOnRefreshListener {
+            currentPage = 1
             loadProjects(true)
             refreshLayout.finishRefresh(2000)
         }
